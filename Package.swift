@@ -1,10 +1,10 @@
-// swift-tools-version: 5.4
+// swift-tools-version: 6.0
 import PackageDescription
 
 let package = Package(
     name: "PhoneNumberKit",
     platforms: [
-        .iOS(.v12), .macOS(.v10_13), .tvOS(.v12), .watchOS(.v4)
+        .iOS(.v18)
     ],
     products: [
         .library(name: "PhoneNumberKit", targets: ["PhoneNumberKit"]),
@@ -22,9 +22,5 @@ let package = Package(
                     .process("Resources/PhoneNumberMetadata.json"),
                     .copy("Resources/PrivacyInfo.xcprivacy")
                 ]),
-        .testTarget(name: "PhoneNumberKitTests",
-                    dependencies: ["PhoneNumberKit"],
-                    path: "PhoneNumberKitTests",
-                    exclude: ["Info.plist"])
     ]
 )
